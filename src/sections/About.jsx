@@ -18,8 +18,8 @@ const TiltCard = ({ children, className }) => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    const rotateX = (y - centerY) / 50; // Much more subtle
-    const rotateY = (centerX - x) / 50; // Much more subtle
+    const rotateX = (y - centerY) / 150; // Much more subtle
+    const rotateY = (centerX - x) / 150; // Much more subtle
     
     setTilt({ x: rotateX, y: rotateY });
   };
@@ -89,9 +89,9 @@ const About = () => {
           </figure>
         </div>
         {/* Grid 4: Contact/Collab */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
+        <div className="grid-special-color grid-4 bg-neutral-950 rounded-2xl shadow-lg flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center gap-4 w-full h-full p-6">
+            <p className="text-center headtext text-black">
               Ready to collaborate on exciting projects?
             </p>
             <CopyEmailButton />
