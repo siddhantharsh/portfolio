@@ -1,12 +1,13 @@
 import { FlipWords } from "./FlipWords";
 import { motion } from "motion/react";
 
-const HeroText = () => {
+const HeroText = ({ animate }) => {
   const words = ["Creative", "Innovative", "Passionate"];
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
   };
+  const shouldAnimate = animate;
   return (
     <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
       {/* Desktop View */}
@@ -15,7 +16,7 @@ const HeroText = () => {
           className="text-4xl font-medium"
           variants={variants}
           initial="hidden"
-          animate="visible"
+          animate={shouldAnimate ? "visible" : "hidden"}
           transition={{ delay: 1 }}
         >
           Hi, I'm Siddhant
@@ -25,7 +26,7 @@ const HeroText = () => {
             className="text-5xl font-medium text-neutral-300"
             variants={variants}
             initial="hidden"
-            animate="visible"
+            animate={shouldAnimate ? "visible" : "hidden"}
             transition={{ delay: 1.2 }}
           >
             Crafting Digital <br /> Experiences with
@@ -33,7 +34,7 @@ const HeroText = () => {
           <motion.div
             variants={variants}
             initial="hidden"
-            animate="visible"
+            animate={shouldAnimate ? "visible" : "hidden"}
             transition={{ delay: 1.5 }}
           >
             <FlipWords
@@ -45,7 +46,7 @@ const HeroText = () => {
             className="text-4xl font-medium text-neutral-300"
             variants={variants}
             initial="hidden"
-            animate="visible"
+            animate={shouldAnimate ? "visible" : "hidden"}
             transition={{ delay: 1.8 }}
           >
             Solutions
@@ -58,7 +59,7 @@ const HeroText = () => {
           className="text-4xl font-medium"
           variants={variants}
           initial="hidden"
-          animate="visible"
+          animate={shouldAnimate ? "visible" : "hidden"}
           transition={{ delay: 1 }}
         >
           Hi, I'm Siddhant
@@ -68,7 +69,7 @@ const HeroText = () => {
             className="text-5xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
-            animate="visible"
+            animate={shouldAnimate ? "visible" : "hidden"}
             transition={{ delay: 1.2 }}
           >
             Building
@@ -76,7 +77,7 @@ const HeroText = () => {
           <motion.div
             variants={variants}
             initial="hidden"
-            animate="visible"
+            animate={shouldAnimate ? "visible" : "hidden"}
             transition={{ delay: 1.5 }}
           >
             <FlipWords
@@ -88,7 +89,7 @@ const HeroText = () => {
             className="text-4xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
-            animate="visible"
+            animate={shouldAnimate ? "visible" : "hidden"}
             transition={{ delay: 1.8 }}
           >
             Digital Solutions

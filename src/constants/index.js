@@ -80,12 +80,22 @@ export const mySocials = [
   {
     name: "GitHub",
     href: "https://github.com/siddhantharsh",
-    icon: "/assets/logos/github.svg",
+    icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAeFBMVEUjHyAiHyAjHiAiHiAgHB0UDRAAAAAaFReEgoPBwMDf39/v7++2trb///+xsLBzcnL+/v5qaGmWlZWMiosJAAAMAAUeGRtCP0Chn6BZV1hRT1A2MjPZ2dlfXV08OTpKSEjQz89lY2MXEhR9e3z19fXHxsbn5+cqJifS2g27AAABfElEQVR4AWVRBaLkUAjjGUzdfdz2/jdcoLLyU6PQlBAAwDBgg9nuZousBef47gMqgge7Fvgra53lEtIpipMkjk4BvZO03X7kgk+zAzmFo40xDovsb5QVMscpzWHNCcHxaHDntqfsB4rOqqx+4JdxivZ8Oud8X3pVjGeOLx3OxZXoWtywqzhxR6HSxJ2yBwE9e+/7Zw9PlXcjZmIkxeqpUyueLx2oBXD4Xn8iNTnd1ijhlF+E+Aq7rzJeOHEqAw/9LIE2gN11umSMoRc9jInU6b1ppYp66G/CPAWrTutpQyPFaw++l+CD8AcG72Jw5zj6CnXmcF9iqy3PyGE3bovoVBS124pqGcD/YvN4LfHILgFV+TdTkJd1IvusXkvxuW92bLWJwySLu/GeomhF3Wn2RY6ZCXQtsxGf6MUfVN576Xe/nsM7K7+JyFuLyfUJByh8OIU7M+rIbIM5Pj1OH2YaywI+M3ony1nL1lggRH13iLTayGqMAGA95eb22JjfaOUa5/ipzPYAAAAASUVORK5CYII=",
   },
   {
     name: "Linkedin",
-    href: "https://www.linkedin.com/in/siddhant-harsh-651854287/",
+    href: "https://www.linkedin.com/in/siddhantharsh/",
     icon: "/assets/socials/linkedIn.svg",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/siddwokeupp/",
+    icon: "/assets/socials/instagram.svg",
+  },
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/919508713070",
+    icon: "/assets/socials/whatsApp.svg",
   },
 ];
 
@@ -110,32 +120,32 @@ export const certifications = [
   {
     title: "Programming in Java – IIT Kharagpur, NPTEL",
     date: "2024",
-    contents: ["Certification"]
+    contents: []
   },
   {
     title: "PostgreSQL: Become an SQL developer – Simplilearn",
     date: "2024",
-    contents: ["Certification"]
+    contents: []
   },
   {
     title: "Full Stack Developer Bootcamp – GeeksforGeeks",
     date: "2024",
-    contents: ["Certification"]
+    contents: []
   },
   {
     title: "The Complete Python Bootcamp – Udemy",
     date: "2024",
-    contents: ["Certification"]
+    contents: []
   },
   {
     title: "Mastering Data Structures & Algorithms using C and C++ – Udemy",
     date: "2024",
-    contents: ["Certification"]
+    contents: []
   },
   {
     title: "React JS Certification Course – GeeksforGeeks",
     date: "2024",
-    contents: ["Certification"]
+    contents: []
   },
 ];
 export const reviews = [

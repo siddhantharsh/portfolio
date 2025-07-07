@@ -55,10 +55,10 @@ function App() {
   return (
     <>
       <SplineModels />
-      <div className="relative min-h-screen text-white overflow-x-hidden z-10">
+      <div className="ui-overlay relative min-h-screen text-white overflow-x-hidden">
         <Navbar />
         <main>
-          <Hero />
+          <Hero animate={!isLoading} />
           <About />
           <Projects />
           <Achievements />

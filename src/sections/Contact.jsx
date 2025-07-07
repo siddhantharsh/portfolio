@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import Alert from "../components/Alert";
 
 const Contact = () => {
@@ -31,26 +30,29 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      console.log("Form submitted:", formData);
-      await emailjs.send(
-        "service_79b0nyj",
-        "template_17us8im",
-        {
-          from_name: formData.name,
-          to_name: "Siddhant",
-          from_email: formData.email,
-          to_email: "siddhant101213@gmail.com",
-          message: formData.message,
-        },
-        "pn-Bw_mS1_QQdofuV"
-      );
+      // Create email content
+      const subject = `Portfolio Contact from ${formData.name}`;
+      const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+      `;
+      
+      // Open default email client with pre-filled content
+      const mailtoLink = `mailto:siddhant101213@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Try to open email client
+      window.open(mailtoLink, '_blank');
+      
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "Your message has been sent!");
+      showAlertMessage("success", "Opening your email client to send the message!");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      showAlertMessage("danger", "Something went wrong!");
+      showAlertMessage("danger", "Something went wrong! Please try again.");
     }
   };
   
@@ -119,7 +121,7 @@ const Contact = () => {
             type="submit"
             className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
           >
-            {!isLoading ? "Send" : "Sending..."}
+            {!isLoading ? "Send Email" : "Preparing..."}
           </button>
         </form>
       </div>
