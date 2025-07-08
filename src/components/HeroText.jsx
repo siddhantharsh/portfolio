@@ -1,99 +1,63 @@
-import { FlipWords } from "./FlipWords";
-import { motion } from "motion/react";
+import { TypingText } from "./TypingText";
+import { TypingWordSwitcher } from "./TypingWordSwitcher";
 
 const HeroText = ({ animate }) => {
   const words = ["Creative", "Innovative", "Passionate"];
-  const variants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
-  const shouldAnimate = animate;
   return (
     <div className="z-10 mt-20 text-center md:mt-40 md:text-left rounded-3xl bg-clip-text">
       {/* Desktop View */}
       <div className="flex-col hidden md:flex c-space">
-        <motion.h1
+        <TypingText
+          text="Hi, I'm Siddhant"
           className="text-4xl font-medium"
-          variants={variants}
-          initial="hidden"
-          animate={shouldAnimate ? "visible" : "hidden"}
-          transition={{ delay: 1 }}
-        >
-          Hi, I'm Siddhant
-        </motion.h1>
+          startDelay={0}
+        />
         <div className="flex flex-col items-start">
-          <motion.p
+          <TypingText
+            text="Crafting Digital"
             className="text-5xl font-medium text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            transition={{ delay: 1.2 }}
-          >
-            Crafting Digital <br /> Experiences with
-          </motion.p>
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            transition={{ delay: 1.5 }}
-          >
-            <FlipWords
-              words={words}
-              className="font-black text-white text-8xl"
-            />
-          </motion.div>
-          <motion.p
+            startDelay={1200}
+          />
+          <TypingText
+            text="Experiences with"
+            className="text-5xl font-medium text-neutral-300"
+            startDelay={1200 + 40 * 16 + 200} // 16 chars * 40ms + 200ms buffer
+          />
+          <TypingWordSwitcher
+            words={words}
+            className="font-black text-white text-8xl"
+            startDelay={2600}
+          />
+          <TypingText
+            text="Solutions"
             className="text-4xl font-medium text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            transition={{ delay: 1.8 }}
-          >
-            Solutions
-          </motion.p>
+            startDelay={5000}
+          />
         </div>
       </div>
       {/* Mobile View */}
       <div className="flex flex-col space-y-6 md:hidden">
-        <motion.p
+        <TypingText
+          text="Hi, I'm Siddhant"
           className="text-4xl font-medium"
-          variants={variants}
-          initial="hidden"
-          animate={shouldAnimate ? "visible" : "hidden"}
-          transition={{ delay: 1 }}
-        >
-          Hi, I'm Siddhant
-        </motion.p>
+          startDelay={0}
+        />
         <div>
-          <motion.p
+          <TypingText
+            text="Building"
             className="text-5xl font-black text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            transition={{ delay: 1.2 }}
-          >
-            Building
-          </motion.p>
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            transition={{ delay: 1.5 }}
-          >
-            <FlipWords
-              words={words}
-              className="font-bold text-white text-7xl"
-            />
-          </motion.div>
-          <motion.p
+            startDelay={1200}
+          />
+          <TypingWordSwitcher
+            words={words}
+            className="font-bold text-white text-7xl"
+            startDelay={2600}
+          />
+          <TypingText
+            text="Digital Solutions"
             className="text-4xl font-black text-neutral-300"
-            variants={variants}
-            initial="hidden"
-            animate={shouldAnimate ? "visible" : "hidden"}
-            transition={{ delay: 1.8 }}
-          >
-            Digital Solutions
-          </motion.p>
+            startDelay={5000}
+          />
         </div>
       </div>
     </div>
