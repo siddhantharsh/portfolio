@@ -11,6 +11,7 @@ import SplineModels from "./components/SplineModels";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showSpline, setShowSpline] = useState(false);
 
   useEffect(() => {
     // Add smooth scrolling to the whole page
@@ -46,6 +47,9 @@ function App() {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    setTimeout(() => {
+      setShowSpline(true);
+    }, 800); // Stagger SplineModels fade-in after hero text
   };
 
   if (isLoading) {
@@ -54,7 +58,7 @@ function App() {
 
   return (
     <>
-      <SplineModels />
+      {showSpline && <SplineModels />}
       <div className="ui-overlay relative min-h-screen text-white overflow-x-hidden">
         <Navbar />
         <main>
