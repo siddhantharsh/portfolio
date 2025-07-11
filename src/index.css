@@ -89,7 +89,18 @@ body::-webkit-scrollbar {
 }
 
 .section-spacing {
-  @apply min-h-screen mt-20 md:mt-30;
+  min-height: 80vh;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.meisken-about-section,
+.meisken-projects-section,
+.meisken-techstack-section,
+.meisken-achievements-section,
+.meisken-certifications-section {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
 }
 
 .text-heading {

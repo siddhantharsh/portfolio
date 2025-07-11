@@ -1,36 +1,38 @@
 import { useState } from "react";
-import { motion } from "motion/react";
-function Navigation() {
+import { motion, AnimatePresence } from "framer-motion";
+
+function Navigation({ onClick }) {
   return (
     <ul className="nav-ul">
       <li className="nav-li">
-        <a className="nav-link" href="#home">
+        <a className="nav-link" href="#home" onClick={onClick}>
           Home
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#about">
+        <a className="nav-link" href="#about" onClick={onClick}>
           About
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#projects">
+        <a className="nav-link" href="#projects" onClick={onClick}>
           Projects
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#achievements">
+        <a className="nav-link" href="#achievements" onClick={onClick}>
           Achievements
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#contact">
+        <a className="nav-link" href="#contact" onClick={onClick}>
           Contact
         </a>
       </li>
     </ul>
   );
 }
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -46,10 +48,11 @@ const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
+            aria-label={isOpen ? "Close navigation" : "Open navigation"}
           >
             <img
               src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-              className="w-6 h-6"
+              className="w-7 h-7"
               alt="toggle"
             />
           </button>
@@ -58,19 +61,30 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      {isOpen && (
-        <motion.div
-          className="block overflow-hidden text-center sm:hidden"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          style={{ maxHeight: "100vh" }}
-          transition={{ duration: 1 }}
-        >
-          <nav className="pb-5">
-            <Navigation />
-          </nav>
-        </motion.div>
-      )}
+      {/* Fullscreen overlay for mobile nav */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-nav"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 sm:hidden"
+          >
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-6 right-6 text-neutral-400 hover:text-white focus:outline-none"
+              aria-label="Close navigation"
+            >
+              <img src="assets/close.svg" className="w-8 h-8" alt="close" />
+            </button>
+            <nav className="flex flex-col items-center gap-8">
+              <Navigation onClick={() => setIsOpen(false)} />
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

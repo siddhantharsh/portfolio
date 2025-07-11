@@ -7,26 +7,20 @@ import Achievements from "./sections/Experiences";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Loader from "./components/Loader";
-import SplineModels from "./components/SplineModels";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showSpline, setShowSpline] = useState(false);
+  const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
-    // Add smooth scrolling to the whole page
     document.documentElement.style.scrollBehavior = 'smooth';
-    
-    // Preload critical resources
     const preloadResources = async () => {
       try {
-        // Preload images
         const images = [
           'assets/coding-pov.png',
           'assets/logos/github.svg',
           'assets/socials/linkedIn.svg'
         ];
-        
         await Promise.all(
           images.map(src => {
             return new Promise((resolve, reject) => {
@@ -41,32 +35,45 @@ function App() {
         console.log('Some resources failed to load:', error);
       }
     };
-
     preloadResources();
   }, []);
 
   const handleLoadingComplete = () => {
-    setIsLoading(false);
+    setTransitioning(true);
     setTimeout(() => {
-      setShowSpline(true);
-    }, 800); // Stagger SplineModels fade-in after hero text
+      setIsLoading(false);
+      setTransitioning(false);
+    }, 800); // Match loader slide duration
   };
-
-  if (isLoading) {
-    return <Loader onLoadingComplete={handleLoadingComplete} />;
-  }
 
   return (
     <>
-      {showSpline && <SplineModels />}
-      <div className="ui-overlay relative min-h-screen text-white overflow-x-hidden">
+      <div className="ui-overlay relative min-h-screen text-white overflow-x-hidden bg-black">
         <Navbar />
-        <main>
-          <Hero animate={!isLoading} />
-          <About />
+        <main className="relative min-h-screen">
+          {/* Loader and Hero slide in sync */}
+          <div className="relative min-h-screen w-full">
+            {/* Loader slides up */}
+            <div className={`fixed inset-0 z-50 transition-transform duration-700 ${transitioning ? '-translate-y-full' : 'translate-y-0'}`}
+              style={{ willChange: 'transform', pointerEvents: isLoading ? 'auto' : 'none' }}>
+              {isLoading && <Loader onLoadingComplete={handleLoadingComplete} />}
+            </div>
+            {/* Hero slides in from below */}
+            <div className={`absolute inset-0 w-full transition-transform duration-700 ${isLoading && !transitioning ? 'translate-y-full' : 'translate-y-0'}`}
+              style={{ willChange: 'transform' }}>
+              <Hero animate={!isLoading || transitioning} />
+            </div>
+          </div>
+          {/* Rest of the sections */}
+          {!isLoading && <>
+            <About />
+            <div className="section-divider" />
           <Projects />
+            <div className="section-divider" />
           <Achievements />
+            <div className="section-divider" />
           <Contact />
+          </>}
         </main>
         <Footer />
       </div>
