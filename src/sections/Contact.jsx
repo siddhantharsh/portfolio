@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Alert from "../components/Alert";
+import Particles from "../components/Particles";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,8 +59,21 @@ ${formData.message}
   
   return (
     <section className="relative flex items-center c-space section-spacing" id="contact">
-      {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
+      {/* Particles background */}
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={200}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={100}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+      {/* Contact card content */}
+      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary" style={{ position: 'relative', zIndex: 1 }}>
         <div className="flex flex-col items-start w-full gap-5 mb-10">
           <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
@@ -125,6 +139,7 @@ ${formData.message}
           </button>
         </form>
       </div>
+      {showAlert && <Alert type={alertType} text={alertMessage} />}
     </section>
   );
 };

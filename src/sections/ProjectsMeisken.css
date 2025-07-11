@@ -1,0 +1,315 @@
+.meisken-projects-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 16px 80px 16px;
+}
+.meisken-projects-heading {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 0.7em;
+  line-height: 1.1;
+}
+.meisken-projects-desc {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 1.18rem;
+  color: #bdbdbd;
+  margin-bottom: 2em;
+  max-width: 600px;
+}
+.meisken-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+@media (max-width: 900px) {
+  .meisken-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+.meisken-project-card-framed {
+  background: #18181c;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  padding: 0;
+  align-items: stretch;
+}
+.meisken-project-frame {
+  background: #232328;
+  margin: 1.2em 1.2em 0 1.2em;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.meisken-project-image-wrap {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #18181c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.meisken-project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.meisken-project-image-placeholder {
+  background: #222;
+  width: 100%;
+  height: 100%;
+}
+.meisken-project-bottom-bar {
+  display: flex;
+  align-items: flex-start;
+  background: #f7f7f7;
+  padding: 1.1em 1.2em 1.1em 1.2em;
+  min-height: 70px;
+  gap: 1em;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+.meisken-project-number {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #18181c;
+  margin-right: 1.2em;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.meisken-project-bottom-desc {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 1.08rem;
+  color: #18181c;
+  line-height: 1.6;
+  margin-top: 0.2em;
+}
+/* About section styles */
+.meisken-about-whatido-centered {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+.meisken-about-whatido-title-full {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 5.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 0.3em;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-align: center;
+  animation: fadeInText 1.2s cubic-bezier(.4,0,.2,1);
+}
+.meisken-about-whatido-desc-full {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 2.1rem;
+  color: #bdbdbd;
+  max-width: 900px;
+  margin-top: 0.2em;
+  text-align: center;
+  animation: fadeInText 1.2s cubic-bezier(.4,0,.2,1) 0.2s both;
+}
+.meisken-about-skills-fw-row-original {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: space-between;
+  background: none;
+}
+.meisken-about-fw-list-original {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 320px;
+}
+.meisken-about-location-row-centered {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 48px;
+  background: none;
+}
+.meisken-about-location-text-centered {
+  width: 100vw;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.meisken-about-location-globe-fade {
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 320px;
+  position: relative;
+}
+.meisken-about-location-globe-fade-inner {
+  width: 480px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.meisken-about-location-globe-fadeout {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #18181c 100%);
+  pointer-events: none;
+}
+@media (max-width: 1100px) {
+  .meisken-projects-section {
+    padding: 32px 4px 40px 4px;
+  }
+  .meisken-projects-grid {
+    gap: 14px;
+  }
+  .meisken-project-bottom-bar {
+    padding: 0.7em 0.7em 0.7em 0.7em;
+    min-height: 48px;
+  }
+  .meisken-project-number {
+    font-size: 1.3rem;
+    margin-right: 0.7em;
+  }
+  .meisken-project-bottom-desc {
+    font-size: 0.98rem;
+  }
+  .meisken-project-frame {
+    margin: 0.5em 0.5em 0 0.5em;
+  }
+  .meisken-about-whatido-centered {
+    min-height: 60vh;
+    padding: 32px 0;
+  }
+  .meisken-about-skills-fw-row-original {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .meisken-about-fw-list-original {
+    min-width: 0;
+    width: 100%;
+  }
+  .meisken-about-location-globe-fade-inner {
+    width: 220px;
+    height: 160px;
+  }
+  .meisken-about-location-globe-fade {
+    height: 120px;
+  }
+} 
+.meisken-certificates-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 16px 80px 16px;
+}
+.meisken-certificates-heading {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-bottom: 1.2em;
+  line-height: 1.1;
+  border-bottom: 3px solid #fff;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+.meisken-certificates-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.meisken-certificates-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.2em 0.5em 1.2em 0.5em;
+  border-bottom: 1px solid #333;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background: none;
+  transition: background 0.2s;
+}
+.meisken-certificates-row:last-child {
+  border-bottom: none;
+}
+.meisken-certificates-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-right: 1.5em;
+  flex-shrink: 0;
+  width: 2.5em;
+  text-align: right;
+}
+.meisken-certificates-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 1.5em;
+  min-width: 220px;
+}
+.meisken-certificates-desc {
+  font-size: 1.1rem;
+  color: #bdbdbd;
+  flex: 1;
+  min-width: 120px;
+}
+@media (max-width: 700px) {
+  .meisken-certificates-section {
+    padding: 32px 4px 40px 4px;
+  }
+  .meisken-certificates-heading {
+    font-size: 2rem;
+    padding-bottom: 0.1em;
+  }
+  .meisken-certificates-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8em 0.2em 0.8em 0.2em;
+  }
+  .meisken-certificates-number {
+    font-size: 1.2rem;
+    margin-bottom: 0.2em;
+    width: auto;
+    text-align: left;
+  }
+  .meisken-certificates-title {
+    font-size: 1.1rem;
+    margin-right: 0.7em;
+    min-width: 0;
+  }
+  .meisken-certificates-desc {
+    font-size: 0.98rem;
+    min-width: 0;
+  }
+} 
